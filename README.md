@@ -1,6 +1,6 @@
 # Water Jug Challenge
 
-An API using Laravel for the Water Jung Challenge
+An application using Laravel and React for the Water Jung Challenge
 
 ## Introduction
 
