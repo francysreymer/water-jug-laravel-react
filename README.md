@@ -40,7 +40,11 @@ This project is an API that includes a backend built with Laravel and Laravel Sa
     ```
 The application should now be runnig at [http://localhost/water-jug](http://localhost/water-jug).
 You should see a page with form like this:
+
 ![Water Jug Challenge Page](images/empty-form.png)
+
+The frontend page is the file: resources/js/Pages/WaterJug.tsx
+The backend controller is the file: app/Http/Controllers/WaterJugController.php
 
 ## Usage
 
