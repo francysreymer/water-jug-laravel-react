@@ -39,6 +39,8 @@ This project is an API that includes a backend built with Laravel and Laravel Sa
     ./deploy.sh
     ```
 The application should now be runnig at [http://localhost/water-jug](http://localhost/water-jug).
+You should see a page with form like this:
+![Water Jug Challenge Page](images/empty-form.png)
 
 ## Usage
 
