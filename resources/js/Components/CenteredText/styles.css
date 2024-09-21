@@ -1,0 +1,7 @@
+.centered-text {
+    text-align: center;
+    font-size: 3rem; /* Adjust the size as needed */
+    color: #5A9BD5; /* Adjust the color to match your layout */
+    font-weight: bold;
+    margin: 20px 0; /* Adjust the margin as needed */
+}

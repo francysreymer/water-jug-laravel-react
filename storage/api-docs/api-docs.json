@@ -1,0 +1,117 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Water Jug API",
+        "description": "API for solving the Water Jug problem",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/water-jugs": {
+            "post": {
+                "tags": [
+                    "Water Jug"
+                ],
+                "summary": "Solve Water Jug Problem",
+                "operationId": "616e8e2f6c6eb45ce7620abc50974152",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "x_capacity",
+                                    "y_capacity",
+                                    "z_amount_wanted"
+                                ],
+                                "properties": {
+                                    "x_capacity": {
+                                        "type": "integer",
+                                        "example": 2
+                                    },
+                                    "y_capacity": {
+                                        "type": "integer",
+                                        "example": 10
+                                    },
+                                    "z_amount_wanted": {
+                                        "type": "integer",
+                                        "example": 3434
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Solution Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "solution": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "bucketX": {
+                                                        "type": "integer",
+                                                        "example": 2
+                                                    },
+                                                    "bucketY": {
+                                                        "type": "integer",
+                                                        "example": 0
+                                                    },
+                                                    "action": {
+                                                        "description": "Possible values: 'Fill bucket X', 'Fill bucket Y', 'Empty bucket X', 'Empty bucket Y', 'Transfer from bucket X to Y', 'Transfer from bucket Y to X'",
+                                                        "type": "string",
+                                                        "example": "Fill bucket X"
+                                                    },
+                                                    "step": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "status": {
+                                                        "type": "string",
+                                                        "example": "Solved",
+                                                        "nullable": true
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error or No Solution",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "oneOf": [
+                                        {
+                                            "properties": {
+                                                "errors": {
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Water Jug",
+            "description": "Water Jug"
+        }
+    ]
+}

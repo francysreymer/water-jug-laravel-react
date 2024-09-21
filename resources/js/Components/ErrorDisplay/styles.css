@@ -1,0 +1,16 @@
+.error-messages {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 20px;
+    border: 1px solid red;
+    border-radius: 4px;
+    background-color: #ffe6e6;
+}
+
+.error-message {
+    color: red;
+    margin: 0;
+}
