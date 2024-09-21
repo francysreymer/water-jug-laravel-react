@@ -48,7 +48,7 @@ The backend controller is the file: `app/Http/Controllers/WaterJugController.php
 
 ## Usage
 
-- **Frontend:** Accessible at `http://localhost/water-jugs`.
+- **Frontend:** Accessible at [http://localhost/water-jug](http://localhost/water-jug).
 
 ## Documentation
 
