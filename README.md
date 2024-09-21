@@ -43,7 +43,7 @@ You should see a page with form like this:
 
 ![Water Jug Challenge Page](images/empty-form.png)
 
-The frontend page is the file: resources/js/Pages/WaterJug.tsx
+The frontend page is the file: resources/js/Pages/WaterJug.tsx<br>
 The backend controller is the file: app/Http/Controllers/WaterJugController.php
 
 ## Usage
