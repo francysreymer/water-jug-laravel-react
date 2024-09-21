@@ -42,20 +42,41 @@ class WaterJugController extends Controller
     *         description="Solution Found",
     *         @OA\JsonContent(
     *             @OA\Property(
-    *                 property="solution",
-    *                 type="array",
-    *                 @OA\Items(
-    *                     type="object",
-    *                     @OA\Property(property="bucketX", type="integer", example=2),
-    *                     @OA\Property(property="bucketY", type="integer", example=0),
-    *                     @OA\Property(
-    *                         property="action",
-    *                         type="string",
-    *                         example="Fill bucket X",
-    *                         description="Possible values: 'Fill bucket X', 'Fill bucket Y', 'Empty bucket X', 'Empty bucket Y', 'Transfer from bucket X to Y', 'Transfer from bucket Y to X'"
-    *                     ),
-    *                     @OA\Property(property="step", type="integer", example=1),
-    *                     @OA\Property(property="status", type="string", example="Solved", nullable=true)
+    *                 property="solutions",
+    *                 type="object",
+    *                 @OA\Property(
+    *                     property="best_solution",
+    *                     type="array",
+    *                     @OA\Items(
+    *                         type="object",
+    *                         @OA\Property(property="bucketX", type="integer", example=0),
+    *                         @OA\Property(property="bucketY", type="integer", example=5),
+    *                         @OA\Property(
+    *                             property="action",
+    *                             type="string",
+    *                             example="Fill bucket Y",
+    *                             description="Possible values: 'Fill bucket X', 'Fill bucket Y', 'Empty bucket X', 'Empty bucket Y', 'Transfer from bucket X to Y', 'Transfer from bucket Y to X'"
+    *                         ),
+    *                         @OA\Property(property="step", type="integer", example=1),
+    *                         @OA\Property(property="status", type="string", example="Solved", nullable=true)
+    *                     )
+    *                 ),
+    *                 @OA\Property(
+    *                     property="worst_solution",
+    *                     type="array",
+    *                     @OA\Items(
+    *                         type="object",
+    *                         @OA\Property(property="bucketX", type="integer", example=3),
+    *                         @OA\Property(property="bucketY", type="integer", example=0),
+    *                         @OA\Property(
+    *                             property="action",
+    *                             type="string",
+    *                             example="Fill bucket X",
+    *                             description="Possible values: 'Fill bucket X', 'Fill bucket Y', 'Empty bucket X', 'Empty bucket Y', 'Transfer from bucket X to Y', 'Transfer from bucket Y to X'"
+    *                         ),
+    *                         @OA\Property(property="step", type="integer", example=1),
+    *                         @OA\Property(property="status", type="string", example="Solved", nullable=true)
+    *                     )
     *                 )
     *             )
     *         )

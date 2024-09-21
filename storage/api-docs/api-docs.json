@@ -49,35 +49,70 @@
                             "application/json": {
                                 "schema": {
                                     "properties": {
-                                        "solution": {
-                                            "type": "array",
-                                            "items": {
-                                                "properties": {
-                                                    "bucketX": {
-                                                        "type": "integer",
-                                                        "example": 2
-                                                    },
-                                                    "bucketY": {
-                                                        "type": "integer",
-                                                        "example": 0
-                                                    },
-                                                    "action": {
-                                                        "description": "Possible values: 'Fill bucket X', 'Fill bucket Y', 'Empty bucket X', 'Empty bucket Y', 'Transfer from bucket X to Y', 'Transfer from bucket Y to X'",
-                                                        "type": "string",
-                                                        "example": "Fill bucket X"
-                                                    },
-                                                    "step": {
-                                                        "type": "integer",
-                                                        "example": 1
-                                                    },
-                                                    "status": {
-                                                        "type": "string",
-                                                        "example": "Solved",
-                                                        "nullable": true
+                                        "solutions": {
+                                            "properties": {
+                                                "best_solution": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "properties": {
+                                                            "bucketX": {
+                                                                "type": "integer",
+                                                                "example": 0
+                                                            },
+                                                            "bucketY": {
+                                                                "type": "integer",
+                                                                "example": 5
+                                                            },
+                                                            "action": {
+                                                                "description": "Possible values: 'Fill bucket X', 'Fill bucket Y', 'Empty bucket X', 'Empty bucket Y', 'Transfer from bucket X to Y', 'Transfer from bucket Y to X'",
+                                                                "type": "string",
+                                                                "example": "Fill bucket Y"
+                                                            },
+                                                            "step": {
+                                                                "type": "integer",
+                                                                "example": 1
+                                                            },
+                                                            "status": {
+                                                                "type": "string",
+                                                                "example": "Solved",
+                                                                "nullable": true
+                                                            }
+                                                        },
+                                                        "type": "object"
                                                     }
                                                 },
-                                                "type": "object"
-                                            }
+                                                "worst_solution": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "properties": {
+                                                            "bucketX": {
+                                                                "type": "integer",
+                                                                "example": 3
+                                                            },
+                                                            "bucketY": {
+                                                                "type": "integer",
+                                                                "example": 0
+                                                            },
+                                                            "action": {
+                                                                "description": "Possible values: 'Fill bucket X', 'Fill bucket Y', 'Empty bucket X', 'Empty bucket Y', 'Transfer from bucket X to Y', 'Transfer from bucket Y to X'",
+                                                                "type": "string",
+                                                                "example": "Fill bucket X"
+                                                            },
+                                                            "step": {
+                                                                "type": "integer",
+                                                                "example": 1
+                                                            },
+                                                            "status": {
+                                                                "type": "string",
+                                                                "example": "Solved",
+                                                                "nullable": true
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
                                         }
                                     },
                                     "type": "object"
