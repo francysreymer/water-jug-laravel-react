@@ -18,7 +18,7 @@ This project is an API that includes a backend built with Laravel and Laravel Sa
 
 - [Docker](https://www.docker.com/)
 
-### Backend Setup
+### Setup
 
 1. **Clone the repository:**
 
