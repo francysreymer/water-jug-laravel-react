@@ -4,7 +4,7 @@ An application using Laravel and React for the Water Jung Challenge
 
 ## Introduction
 
-This project is an API that includes a backend built with Laravel 11 and Laravel Sail, and a frontend build with Inertia + React + Typescript. The backend is containerized using Docker, allowing for easy deployment and management. 
+This project is an API that includes a backend built with Laravel and Laravel Sail, and a frontend build with Inertia + React + Typescript. The backend is containerized using Docker, allowing for easy deployment and management. 
 
 ## Table of Contents
 
