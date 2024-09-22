@@ -126,23 +126,23 @@ class WaterJugControllerTest extends TestCase
     public static function invalidPayloadProvider(): array
     {
         return [
-            'missing z_amount_wanted' => [['x_capacity' => 3, 'y_capacity' => 5]],
-            'missing x_capacity' => [['y_capacity' => 5, 'z_amount_wanted' => 4]],
-            'missing y_capacity' => [['x_capacity' => 3, 'z_amount_wanted' => 4]],
-            'x_capacity equals z_amount_wanted' => [['x_capacity' => 4, 'y_capacity' => 5, 'z_amount_wanted' => 4]],
-            'y_capacity equals z_amount_wanted' => [['x_capacity' => 3, 'y_capacity' => 4, 'z_amount_wanted' => 4]],
-            'non-integer x_capacity' => [['x_capacity' => 'three', 'y_capacity' => 5, 'z_amount_wanted' => 4]],
-            'non-integer y_capacity' => [['x_capacity' => 3, 'y_capacity' => 'five', 'z_amount_wanted' => 4]],
-            'non-integer z_amount_wanted' => [['x_capacity' => 3, 'y_capacity' => 5, 'z_amount_wanted' => 'four']],
-            'negative x_capacity' => [['x_capacity' => -3, 'y_capacity' => 5, 'z_amount_wanted' => 4]],
-            'negative y_capacity' => [['x_capacity' => 3, 'y_capacity' => -5, 'z_amount_wanted' => 4]],
-            'negative z_amount_wanted' => [['x_capacity' => 3, 'y_capacity' => 5, 'z_amount_wanted' => -4]],
-            'zero x_capacity' => [['x_capacity' => 0, 'y_capacity' => 5, 'z_amount_wanted' => 4]],
-            'zero y_capacity' => [['x_capacity' => 3, 'y_capacity' => 0, 'z_amount_wanted' => 4]],
-            'zero z_amount_wanted' => [['x_capacity' => 3, 'y_capacity' => 5, 'z_amount_wanted' => 0]],
-            'float x_capacity' => [['x_capacity' => 3.5, 'y_capacity' => 5, 'z_amount_wanted' => 4]],
-            'float y_capacity' => [['x_capacity' => 3, 'y_capacity' => 5.5, 'z_amount_wanted' => 4]],
-            'float z_amount_wanted' => [['x_capacity' => 3, 'y_capacity' => 5, 'z_amount_wanted' => 4.5]],
+            'missing amount_wanted_z' => [['bucket_x' => 3, 'bucket_y' => 5]],
+            'missing bucket_x' => [['bucket_y' => 5, 'amount_wanted_z' => 4]],
+            'missing bucket_y' => [['bucket_x' => 3, 'amount_wanted_z' => 4]],
+            'bucket_x equals amount_wanted_z' => [['bucket_x' => 4, 'bucket_y' => 5, 'amount_wanted_z' => 4]],
+            'bucket_y equals amount_wanted_z' => [['bucket_x' => 3, 'bucket_y' => 4, 'amount_wanted_z' => 4]],
+            'non-integer bucket_x' => [['bucket_x' => 'three', 'bucket_y' => 5, 'amount_wanted_z' => 4]],
+            'non-integer bucket_y' => [['bucket_x' => 3, 'bucket_y' => 'five', 'amount_wanted_z' => 4]],
+            'non-integer amount_wanted_z' => [['bucket_x' => 3, 'bucket_y' => 5, 'amount_wanted_z' => 'four']],
+            'negative bucket_x' => [['bucket_x' => -3, 'bucket_y' => 5, 'amount_wanted_z' => 4]],
+            'negative bucket_y' => [['bucket_x' => 3, 'bucket_y' => -5, 'amount_wanted_z' => 4]],
+            'negative amount_wanted_z' => [['bucket_x' => 3, 'bucket_y' => 5, 'amount_wanted_z' => -4]],
+            'zero bucket_x' => [['bucket_x' => 0, 'bucket_y' => 5, 'amount_wanted_z' => 4]],
+            'zero bucket_y' => [['bucket_x' => 3, 'bucket_y' => 0, 'amount_wanted_z' => 4]],
+            'zero amount_wanted_z' => [['bucket_x' => 3, 'bucket_y' => 5, 'amount_wanted_z' => 0]],
+            'float bucket_x' => [['bucket_x' => 3.5, 'bucket_y' => 5, 'amount_wanted_z' => 4]],
+            'float bucket_y' => [['bucket_x' => 3, 'bucket_y' => 5.5, 'amount_wanted_z' => 4]],
+            'float amount_wanted_z' => [['bucket_x' => 3, 'bucket_y' => 5, 'amount_wanted_z' => 4.5]],
         ];
     }
 
@@ -156,9 +156,9 @@ class WaterJugControllerTest extends TestCase
         );
 
         $response = $this->postJson(self::API_ENDPOINT, [
-            'x_capacity' => 2,
-            'y_capacity' => 6,
-            'z_amount_wanted' => 5
+            'bucket_x' => 2,
+            'bucket_y' => 6,
+            'amount_wanted_z' => 5
         ]);
 
         $response->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -184,9 +184,9 @@ class WaterJugControllerTest extends TestCase
 
         // Define the payload
         $payload = [
-            'x_capacity' => 3,
-            'y_capacity' => 5,
-            'z_amount_wanted' => 4
+            'bucket_x' => 3,
+            'bucket_y' => 5,
+            'amount_wanted_z' => 4
         ];
 
         // Send a POST request to the endpoint
@@ -241,13 +241,13 @@ class WaterJugControllerTest extends TestCase
     {
         // Define the payload
         $payload = [
-            'x_capacity' => 3,
-            'y_capacity' => 5,
-            'z_amount_wanted' => 4
+            'bucket_x' => 3,
+            'bucket_y' => 5,
+            'amount_wanted_z' => 4
         ];
 
         // Generate the cache key
-        $cacheKey = sprintf("water_jug_solution_%d_%d_%d", $payload['x_capacity'], $payload['y_capacity'], $payload['z_amount_wanted']);
+        $cacheKey = sprintf("water_jug_solution_%d_%d_%d", $payload['bucket_x'], $payload['bucket_y'], $payload['amount_wanted_z']);
 
         // Mock the Cache facade
         Cache::shouldReceive('remember')

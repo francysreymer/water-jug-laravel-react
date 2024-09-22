@@ -21,9 +21,9 @@ const WaterJug: React.FC = () => {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    x_capacity: x,
-                    y_capacity: y,
-                    z_amount_wanted: z,
+                    bucket_x: x,
+                    bucket_y: y,
+                    amount_wanted_z: z,
                 }),
             });
             if (response.ok) {

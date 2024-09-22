@@ -31,10 +31,10 @@ class WaterJugController extends Controller
     *     @OA\RequestBody(
     *         required=true,
     *         @OA\JsonContent(
-    *             required={"x_capacity", "y_capacity", "z_amount_wanted"},
-    *             @OA\Property(property="x_capacity", type="integer", example=2),
-    *             @OA\Property(property="y_capacity", type="integer", example=10),
-    *             @OA\Property(property="z_amount_wanted", type="integer", example=3434),
+    *             required={"bucket_x", "bucket_y", "amount_wanted_z"},
+    *             @OA\Property(property="bucket_x", type="integer", example=2),
+    *             @OA\Property(property="bucket_y", type="integer", example=10),
+    *             @OA\Property(property="amount_wanted_z", type="integer", example=3434),
     *         ),
     *     ),
     *     @OA\Response(
@@ -98,34 +98,34 @@ class WaterJugController extends Controller
     {
         try {            
             $validatedData = $request->validate([
-                'x_capacity' => [
+                'bucket_x' => [
                     'required',
                     'integer',
                     'min:1',
                     'bail',
                     function ($attribute, $value, $fail) use ($request) {
-                        if ($value == $request->input('z_amount_wanted')) {
+                        if ($value == $request->input('amount_wanted_z')) {
                             $fail('The ' . $attribute . ' must be different from Z.');
                         }
                     },
                 ],
-                'y_capacity' => [
+                'bucket_y' => [
                     'required',
                     'integer',
                     'min:1',
                     'bail',
                     function ($attribute, $value, $fail) use ($request) {
-                        if ($value == $request->input('z_amount_wanted')) {
+                        if ($value == $request->input('amount_wanted_z')) {
                             $fail('The ' . $attribute . ' must be different from Z.');
                         }
                     },
                 ],
-                'z_amount_wanted' => 'required|integer|min:1',
+                'amount_wanted_z' => 'required|integer|min:1',
             ]);
 
-            $bucketX = $validatedData['x_capacity'];
-            $bucketY = $validatedData['y_capacity'];
-            $amountWantedZ = $validatedData['z_amount_wanted'];
+            $bucketX = $validatedData['bucket_x'];
+            $bucketY = $validatedData['bucket_y'];
+            $amountWantedZ = $validatedData['amount_wanted_z'];
 
             // Generate a unique cache key
             $cacheKey = sprintf("water_jug_solution_%d_%d_%d", $bucketX, $bucketY, $amountWantedZ);

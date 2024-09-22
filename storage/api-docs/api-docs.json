@@ -8,9 +8,7 @@
     "paths": {
         "/api/water-jugs": {
             "post": {
-                "tags": [
-                    "Water Jug"
-                ],
+                "tags": ["Water Jug"],
                 "summary": "Solve Water Jug Problem",
                 "operationId": "616e8e2f6c6eb45ce7620abc50974152",
                 "requestBody": {
@@ -19,20 +17,20 @@
                         "application/json": {
                             "schema": {
                                 "required": [
-                                    "x_capacity",
-                                    "y_capacity",
-                                    "z_amount_wanted"
+                                    "bucket_x",
+                                    "bucket_y",
+                                    "amount_wanted_z"
                                 ],
                                 "properties": {
-                                    "x_capacity": {
+                                    "bucket_x": {
                                         "type": "integer",
                                         "example": 2
                                     },
-                                    "y_capacity": {
+                                    "bucket_y": {
                                         "type": "integer",
                                         "example": 10
                                     },
-                                    "z_amount_wanted": {
+                                    "amount_wanted_z": {
                                         "type": "integer",
                                         "example": 3434
                                     }
