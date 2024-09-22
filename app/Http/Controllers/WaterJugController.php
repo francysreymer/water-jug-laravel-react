@@ -105,7 +105,7 @@ class WaterJugController extends Controller
                     'bail',
                     function ($attribute, $value, $fail) use ($request) {
                         if ($value == $request->input('amount_wanted_z')) {
-                            $fail('The ' . $attribute . ' must be different from Z.');
+                            $fail('The ' . $attribute . ' must be different from Amount Wanted Z.');
                         }
                     },
                 ],
@@ -116,7 +116,7 @@ class WaterJugController extends Controller
                     'bail',
                     function ($attribute, $value, $fail) use ($request) {
                         if ($value == $request->input('amount_wanted_z')) {
-                            $fail('The ' . $attribute . ' must be different from Z.');
+                            $fail('The ' . $attribute . ' must be different from Amount Wanted Z.');
                         }
                     },
                 ],
