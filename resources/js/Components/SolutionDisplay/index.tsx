@@ -45,7 +45,7 @@ const SolutionDisplay: React.FC<SolutionsState> = ({
         <div>
             {renderSolutionTable("This is the best solution:", bestSolution)}
             {worstSolution &&
-                renderSolutionTable("Worst Solution:", worstSolution)}
+                renderSolutionTable("Other solutions:", worstSolution)}
         </div>
     );
 };
